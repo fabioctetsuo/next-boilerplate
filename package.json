@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src"
+    "lint": "eslint --ignore-path .gitignore --ext .js,ts,.tsx src",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx|jsx)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "check-types": "tsc",
+    "validate": "yarn check-format && yarn lint && yarn build"
   },
   "dependencies": {
     "next": "9.5.1",
@@ -19,8 +24,10 @@
     "@typescript-eslint/eslint-plugin": "^3.8.0",
     "@typescript-eslint/parser": "^3.8.0",
     "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.7"
   }
 }
